@@ -4,6 +4,13 @@
   "description": "Adaptive, model-agnostic AI governance engine and RBAC policy generator for developer tools (Antigravity, Claude Code, Cursor, Aider, Ollama).",
   "type": "module",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "bin": {
     "ai-governor": "./bin/cli.js"
   },
@@ -25,6 +32,8 @@
     "start": "node bin/cli.js",
     "detect": "node bin/cli.js detect",
     "init": "node bin/cli.js init",
+    "gate": "node bin/cli.js gate",
+    "task": "node bin/cli.js task",
     "audit": "node bin/cli.js audit",
     "sync": "node bin/cli.js sync",
     "test": "node tests/test.js"
