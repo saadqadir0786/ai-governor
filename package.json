@@ -12,7 +12,7 @@
     "LICENSE"
   ],
   "bin": {
-    "ai-governor": "./bin/cli.js"
+    "ai-governor": "bin/cli.js"
   },
   "keywords": [
     "ai",
@@ -29,7 +29,7 @@
   "author": "Saad Qadir",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saadqadir0786/ai-governor.git"
+    "url": "git+https://github.com/saadqadir0786/ai-governor.git"
   },
   "license": "MIT",
   "scripts": {
