@@ -1,0 +1,35 @@
+{
+  "name": "ai-governor",
+  "version": "1.0.0",
+  "description": "Adaptive, model-agnostic AI governance engine and RBAC policy generator for developer tools (Antigravity, Claude Code, Cursor, Aider, Ollama).",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "ai-governor": "./bin/cli.js"
+  },
+  "keywords": [
+    "ai",
+    "governance",
+    "rbac",
+    "claude-code",
+    "antigravity",
+    "cursor",
+    "aider",
+    "llm",
+    "developer-tools",
+    "prompt-engineering"
+  ],
+  "author": "Alishba",
+  "license": "MIT",
+  "scripts": {
+    "start": "node bin/cli.js",
+    "detect": "node bin/cli.js detect",
+    "init": "node bin/cli.js init",
+    "audit": "node bin/cli.js audit",
+    "sync": "node bin/cli.js sync",
+    "test": "node tests/test.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
