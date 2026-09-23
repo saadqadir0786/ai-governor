@@ -184,7 +184,7 @@ await backend.addReview('TASK_001', {
   content: 'OAuth2 with PKCE implemented. All 14 tests passing.'
 });
 
-// 4. Submit task (evaluates EG-01 through EG-06 guards)
+// 4. Submit task (evaluates EG-01 through EG-10 guards)
 const submission = await engine.transitionTask('TASK_001', TASK_STATES.READY_FOR_REVIEW, 'DEVELOPER');
 console.log(submission.result); // "PASS"
 
@@ -195,38 +195,42 @@ console.log(approval.result); // "PASS"
 
 ---
 
-## 📊 Comparison Matrix
+## 📊 Without Governance vs. With AI Governor
 
-| Feature | Without Governance | neo4j-labs/ai-governor | `ai-governor` (This Repo) |
-| :--- | :--- | :--- | :--- |
-| **Agent submits work** | Straight to production | Hits guard evaluation | **Hits guard evaluation** |
-| **Missing self-review** | Unnoticed | Blocks transition (EG-01) | **Blocks transition (EG-01)** |
-| **Deliverable verification** | None | Checks existence + realpath | **Checks existence + realpath security (EG-02)** |
-| **Deploy without rollback** | Risk outage | Blocks transition (EG-06) | **Blocks transition (EG-04)** |
-| **Self-approval** | Agent approves itself | Blocks transition | **Blocks transition (Role Separation)** |
-| **IDE Adapters** | None | None | **Antigravity, Claude Code, Cursor** |
-| **Model RBAC & Intensity** | None | None | **Built-in capability matrix & thinking tiers** |
-| **Environment Detection** | None | None | **Auto-detects active IDEs, keys, local Ollama** |
-| **Zero Dependencies** | N/A | Python / Neo4j | **Zero dependencies (Pure Node.js)** |
+| Workflow Action | Without Governance | With `ai-governor` |
+| :--- | :--- | :--- |
+| **Agent Submits Work** | Merged straight to main | Evaluated against 10 deterministic quality guards |
+| **Missing Self-Review** | Unverified claims | Blocked until verification summary provided (`EG-01`) |
+| **Deliverables Verification** | Hallucinated file paths | Verified on disk with symlink & path traversal security (`EG-02`) |
+| **Testing Standards** | Ignored or skipped | Blocked without real automated test proof `exitCode: 0` (`EG-03`) |
+| **Deployments & Migrations** | High outage risk | Blocked without explicit rollback strategy (`EG-04`) |
+| **Destructive Commands** | Database dropped silently | Blocked by 3-Tier Human Clearance Gate (`EG-05`) |
+| **Rapid Fix Budget** | Multi-file runaway refactor | Enforces strict $\le 50$-line scoped edit limits (`EG-06`) |
+| **Investigation Claims** | Thin, unverifiable claims | Blocked without $\ge 2$ independent evidence citations (`EG-07`) |
+| **Self-Approval** | Agent approves own work | Blocked by Role Separation Gate (`EG-08`) |
+| **Secret Leaks** | Leaks API tokens into logs | Blocked by automated credential & key regex scanner (`EG-09`) |
+| **Unauthorized Deploys** | Sneaky cluster pushes | Blocks deployment commands in non-DEPLOY tasks (`EG-10`) |
 
 ---
 
-## 📦 Publishing & Linking
+## 📦 Installation & Setup
 
-### Link Globally
-Run `ai-governor` anywhere without typing paths:
+### Instant Run (No Installation Needed)
 ```bash
-npm install -g .
-# or
-npm link
+npx ai-governor init
 ```
 
-### Publish to NPM
+### Install Globally
 ```bash
-npm publish --access public
+npm install -g ai-governor
+```
+
+### Add to Existing Project
+```bash
+npm install --save-dev ai-governor
 ```
 
 ---
 
 ## 📄 License
-MIT © Alishba
+MIT © Saad Qadir

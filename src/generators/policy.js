@@ -78,7 +78,7 @@ ${HUMAN_CLEARANCE_MATRIX.GREEN.triggers.map(t => `- ${t}`).join('\n')}
 4. **Never claim completion without proof:** Include raw terminal test outputs in the response.
 
 ---
-*Generated with [ai-governor](https://github.com/alishba/ai-governor)*
+*Generated with [ai-governor](https://github.com/saadqadir0786/ai-governor)*
 `;
 
   return content;

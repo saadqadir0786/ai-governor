@@ -26,7 +26,11 @@
     "developer-tools",
     "prompt-engineering"
   ],
-  "author": "Alishba",
+  "author": "Saad Qadir",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saadqadir0786/ai-governor.git"
+  },
   "license": "MIT",
   "scripts": {
     "start": "node bin/cli.js",

@@ -4,7 +4,7 @@
 
 import { DEFAULT_MODEL_REGISTRY } from '../matrix.js';
 
-const REMOTE_REGISTRY_URL = process.env.AI_GOVERNOR_REMOTE_URL || 'https://raw.githubusercontent.com/alishba/ai-governor-registry/main/models.json';
+const REMOTE_REGISTRY_URL = process.env.AI_GOVERNOR_REMOTE_URL || 'https://raw.githubusercontent.com/saadqadir0786/ai-governor-registry/main/models.json';
 
 /**
  * Attempt to fetch the latest model capabilities matrix from remote source
